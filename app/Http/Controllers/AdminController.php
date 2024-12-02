@@ -15,8 +15,13 @@ class AdminController extends Controller
 
     public function AdminLogout()
 {
-    Auth::logout(); // Properly logs out the current authenticated user
-    return redirect()->route('login'); // Redirects to the login page
+    Auth::logout(); 
+    return redirect()->route('admin.login');
+}
+
+public function AdminLogin(Request $request){
+    return view('admin.admin_login');
+    
 }
 
 }
