@@ -15,9 +15,18 @@ class Role
      */
     public function handle(Request $request, Closure $next, $role): Response
     {
-        if($request->user()->role !== $role){
-            return redirect('dashboard');
+        // Check if the user is authenticated
+        if (!$request->user()) {
+            return redirect()->route('login')->with('error', 'Please log in first.');
         }
+    
+        // Check if the user's role matches the required role
+        if ($request->user()->role !== $role) {
+            return redirect()->route('dashboard')->with('error', 'Unauthorized access.');
+        }
+    
+        // Proceed with the request
         return $next($request);
     }
+    
 }
