@@ -18,28 +18,29 @@
             </div>
 
             
-            <p>Hi! I'm Amiah the Senior UI Designer at NobleUI. We hope you enjoy the design and quality of Social.</p>
+            <p>{{Auth::user()->about}}
+              </p>
 
             <div class="mt-3">
                 <label class="tx-11 fw-bolder mb-0 text-uppercase">Name:</label>
-                <p class="text-muted">Ali zaib</p>
+                <p class="text-muted">{{$getRecord->name}}</p>
               </div>
               
             <div class="mt-3">
               <label class="tx-11 fw-bolder mb-0 text-uppercase">Joined:</label>
-              <p class="text-muted">November 15, 2015</p>
+              <p class="text-muted">{{date('d-m-Y',strtotime(Auth::user()->created_at))}}</p>
             </div>
             <div class="mt-3">
               <label class="tx-11 fw-bolder mb-0 text-uppercase">Lives:</label>
-              <p class="text-muted">New York, USA</p>
+              <p class="text-muted">{{Auth::user()->address}}</p>
             </div>
             <div class="mt-3">
               <label class="tx-11 fw-bolder mb-0 text-uppercase">Email:</label>
-              <p class="text-muted">me@nobleui.com</p>
+            <p class="text-muted">{{$getRecord->email}}</p>
             </div>
             <div class="mt-3">
               <label class="tx-11 fw-bolder mb-0 text-uppercase">Website:</label>
-              <p class="text-muted">www.nobleui.com</p>
+              <p class="text-muted">{{$getRecord->website}}</p>
             </div>
             
           </div>
