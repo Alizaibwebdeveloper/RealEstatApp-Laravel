@@ -24,6 +24,9 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard');  
     Route::get('admin/logout',[AdminController::class,'AdminLogout'])->name('admin.logout');
+
+Route::get('admin/profile',[AdminController::class,'AdminProfile'])->name('admin.profile');
+Route::post('admin_profile/update', [AdminController::class,'admin_profile_update']);
 });
 
 
@@ -32,7 +35,4 @@ Route::middleware(['auth', 'role:agent'])->group(function(){
 });
 
 Route::get('admin/login',[AdminController::class,'AdminLogin'])->name('admin.login');
-
-
-
 
