@@ -68,4 +68,15 @@ public function admin_profile_update(Request $request){
 
 }
 
+public function admin_users(){
+
+    $data['getRecord'] = User::getRecord();
+    return view('admin.user.list', $data);
+}
+
+public function admin_users_view($id){
+    $data['getRecord'] = User::find($id);
+    return view('admin.user.view',$data);
+}
+
 }
